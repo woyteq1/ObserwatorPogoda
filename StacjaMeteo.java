@@ -1,13 +1,16 @@
-public class StacjaMeteo {
+import dane.GeneratorDanychPogodowych;
+import widok.Wyswietlacz_C;
+import widok.Wyswietlacz_TW;
+
+public class  StacjaMeteo {
 
 	public static void main(String[] args) {
+		GeneratorDanychPogodowych generatorDanychPogodowych = new GeneratorDanychPogodowych();
 
-		DanePogodowe danePogodowe = new DanePogodowe();
-		WarunkiBiezaceWyswietl warunkiBiezaceWyswietl = new WarunkiBiezaceWyswietl(danePogodowe);
+		new Wyswietlacz_TW(generatorDanychPogodowych);
+		new Wyswietlacz_C(generatorDanychPogodowych);
 
-		danePogodowe.ustawOdczyt(29.9f, 70, 1010.10f);
-		danePogodowe.ustawOdczyt(31.2f, 80, 999.9f);
-		danePogodowe.ustawOdczyt(22.2f, 90, 950);
+		generatorDanychPogodowych.uruchomGenerator();
 	}
 
 }
